@@ -1,15 +1,13 @@
 import pandas as pd 
 
 #Summary null values
-def summary(X):
-    ''' This Function will return the columns names as index,null_value_count,any unique character we specify & its percentage of occurance per column.'''
-    null_values = X.apply(lambda x:X.isnull().sum())
-    blank_char = X.apply(lambda x:X.isin(['?']).sum())
-    percent_blank_char =X.apply(lambda x:round((X.isin(['?']).sum()/X.shape[0])*100, 2))
-    unique_values = X.apply(lambda x:len(X.unique()))
-    return pd.DataFrame({'null_values':null_values,
-                         '? Values':blank_char,'% ? Values':percent_blank_char
-                        ,'unique_values':unique_values})
+def null(X):
+    X = X.copy()
+    null_val = X.isnull().sum()
+    null_S = pd.Series(null_val)
+    X = pd.DataFrame({'column': null_S.index, 'Total': null_S})
+    X = X.reset_index(drop=True)
+    return X
 
 #Date split
 def date_split(X, date):
