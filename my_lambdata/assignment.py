@@ -21,18 +21,18 @@ def date_split(df):
 
     return df2
 
-def wage(hours,wage):
+def pay(hours,wage):
     if hours >40:
-        wages =hours*wage
-        pay = 40*wage + (hours - 40)*wage*1.5
-
-        return pay
+        
+        return 40*wage + (hours - 40)*wage*1.5
     else:
-        return wages
+        return hours*wage
 
 
 
 
 #if __name__=="__main__":
     #data= pd.read_csv('')
-    
+   hours = 50
+   wage = 15
+   print(pay) 

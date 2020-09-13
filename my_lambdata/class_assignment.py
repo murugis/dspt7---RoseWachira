@@ -17,3 +17,4 @@ if __name__ == "__main__":
 
     employee2 = Employees("Andrew", "Male", 45, "Manager")
     employee2.post()
+    print("My name is",employee2.name.)
